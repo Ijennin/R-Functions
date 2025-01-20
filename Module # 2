@@ -1,0 +1,23 @@
+Module # 2 
+LIS4370.001S25.15858 R Programming
+
+
+> assignment2<- c(16, 18, 14, 22, 27, 17, 19, 17, 17, 22, 20, 22)
+> myMean <- function(assignment2) {return(sum(assignment2)/length(assignment2))}
+> # Assign data to a vector
+> assignment2 <- c(16, 18, 14, 22, 27, 17, 19, 17, 17, 22, 20, 22)
+> # Calculate the mean
+> myMean <- function(assignment2) {
++   return(sum(assignment2) / length(assignment2))
++ }
+> # Call the function and store the result
+> result <- myMean(assignment2)
+> # Print the result
+> print(result)
+[1] 19.25
+> 
+
+assignment2 is a vector with numbers (16, 18, 14, 22, 27, 17, 19, 17, 17, 22, 20, 22). It provides the data for calculating the average using the myMean function.
+
+
+The myMean function works by finding the average of the numbers in assignment2. It adds up all the numbers with the sum() function and then divides the total by how many numbers there are, using the length() function. This is how you figure out an average adding everything up and divide by the number of items. The function does this correctly, making it a good way to find the average of a set of numbers.

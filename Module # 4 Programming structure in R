@@ -1,0 +1,42 @@
+> # Create vectors for each variable
+> Frequency <- c(0.6, 0.3, 0.4, 0.4, 0.2, 0.6, 0.3, 0.4, 0.9, 0.2)
+> BP <- c(103, 87, 32, 42, 59, 109, 78, 205, 135, 176)
+> First <- c(1, 1, 1, 1, 0, 0, 0, 0, NA, 1)
+> Second <- c(0, 0, 1, 1, 0, 0, 1, 1, 1, 1)
+> FinalDecision <- c(0, 1, 0, 1, 0, 1, 0, 1, 1, 1)
+> 
+> # Combine the data into a data frame
+> data <- data.frame(Frequency, BP, First, Second, FinalDecision)
+> 
+> # Check the updated data
+> print(data)
+   Frequency  BP First Second FinalDecision
+1        0.6 103     1      0             0
+2        0.3  87     1      0             1
+3        0.4  32     1      1             0
+4        0.4  42     1      1             1
+5        0.2  59     0      0             0
+6        0.6 109     0      0             1
+7        0.3  78     0      1             0
+8        0.4 205     0      1             1
+9        0.9 135    NA      1             1
+10       0.2 176     1      1             1
+> 
+> # Replace NA values in 'First' column with 0
+> data$First[is.na(data$First)] <- 0
+> 
+> # Side-by-side boxplot
+> boxplot(BP ~ First, data = data,
++         main = "Blood Pressure vs. MD's Rating (First Assessment)",
++         xlab = "MD's First Assessment",
++         ylab = "Blood Pressure (BP)",
++         col = c("lightblue", "lightgreen"))
+> 
+> # Histogram for Blood Pressure (BP)
+> hist(data$BP,
++      main = "Histogram of Blood Pressure (BP)",
++      xlab = "Blood Pressure (BP)",
++      col = "lightblue",
++      border = "black",
++      breaks = 5)
+> 

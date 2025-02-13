@@ -1,0 +1,38 @@
+Issaiah Jennings 
+Module # 5 Doing Math
+
+In this assignment, I worked with two matrices, A and B. Matrix A is a 10x10 square matrix, so I calculated its determinant. If the determinant was not zero, I found the inverse using the solve() function. If the determinant was zero, I returned a message saying the matrix is singular and doesn't have an inverse. Matrix B is a 10x100 matrix, which is not square, so it doesn't have a determinant or an inverse. I handled both cases by checking the conditions before trying to compute the inverse and printed appropriate messages.
+
+
+
+> # Define matrix A
+> A <- matrix(1:100, nrow=10)
+> 
+> # Define matrix B
+> B <- matrix(1:1000, nrow=10)
+> 
+> # Compute determinant of A
+> det_A <- det(A)
+> 
+> # Check if A is invertible (det(A) ≠ 0)
+> if (det_A != 0) {
++   inv_A <- solve(A)  # Compute inverse of A
++ } else {
++   inv_A <- "Matrix A is singular and does not have an inverse."
++ }
+> 
+> # Print results
+> print("Determinant of A:")
+[1] "Determinant of A:"
+> print(det_A)
+[1] 0
+> 
+> print("Inverse of A (if applicable):")
+[1] "Inverse of A (if applicable):"
+> print(inv_A)
+[1] "Matrix A is singular and does not have an inverse."
+> 
+> # Explanation of B:
+> print("Matrix B is not square (10x100), so it does not have an inverse.")
+[1] "Matrix B is not square (10x100), so it does not have an inverse."
+> 

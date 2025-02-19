@@ -1,0 +1,90 @@
+
+
+Issaiah Jennings
+
+Module # 6 Doing math in R part 2
+
+In this code, I performed three matrix operations in R. First, I created two matrices, A and B, and used basic matrix arithmetic to compute their sum and difference. Next, I used the diag() function to generate a 4x4 diagonal matrix with specific values. Finally, I constructed a 5x5 matrix by initializing a diagonal of 3s and modifying the first row and column to match the required structure. This method illustrates simple and effective matrix manipulation techniques in R.
+
+
+> # 1. Define matrices A and B
+
+> A <- matrix(c(2,0,1,3), ncol=2)
+
+> B <- matrix(c(5,2,4,-1), ncol=2)
+
+>
+
+> # a) Matrix Addition
+
+> A_plus_B <- A + B
+
+>
+
+> # b) Matrix Subtraction
+
+> A_minus_B <- A - B
+
+>
+
+> # 2. Create a diagonal matrix with values
+
+> diag_matrix <- diag(c(4,1,2,3))
+
+>
+
+> # 3. Generate the specified 5x5 matrix
+
+> m <- diag(3, 5, 5)
+
+> m[1, 2:5] <- 1 # Set first row (except first element) to 1
+
+> m[2:5, 1] <- 2 # Set first column (except first element) to 2
+
+>
+
+> # Print results
+
+> A_plus_B
+
+[,1] [,2]
+
+[1,] 7 5
+
+[2,] 2 2
+
+> A_minus_B
+
+[,1] [,2]
+
+[1,] -3 -3
+
+[2,] -2 4
+
+> diag_matrix
+
+[,1] [,2] [,3] [,4]
+
+[1,] 4 0 0 0
+
+[2,] 0 1 0 0
+
+[3,] 0 0 2 0
+
+[4,] 0 0 0 3
+
+> m
+
+[,1] [,2] [,3] [,4] [,5]
+
+[1,] 3 1 1 1 1
+
+[2,] 2 3 0 0 0
+
+[3,] 2 0 3 0 0
+
+[4,] 2 0 0 3 0
+
+[5,] 2 0 0 0 3
+
+>

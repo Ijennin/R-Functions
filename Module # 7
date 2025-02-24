@@ -1,0 +1,79 @@
+Issaiah Jennings
+
+Module # 7 R Object: S3 vs. S4 assignment
+
+In this blog, I will walk through a practical example of using object-oriented systems (S3 and S4) in R.
+
+> # Step 1: Load and View the Dataset
+> data("mtcars")  
+> head(mtcars, 6)  
+                   mpg cyl disp  hp drat    wt  qsec vs am gear carb
+Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1
+> 
+> # Step 2: Check if a Generic Function Can Be Applied
+> class(mtcars)  
+[1] "data.frame"
+> summary(mtcars)  
+      mpg             cyl             disp             hp             drat             wt             qsec             vs               am        
+ Min.   :10.40   Min.   :4.000   Min.   : 71.1   Min.   : 52.0   Min.   :2.760   Min.   :1.513   Min.   :14.50   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:15.43   1st Qu.:4.000   1st Qu.:120.8   1st Qu.: 96.5   1st Qu.:3.080   1st Qu.:2.581   1st Qu.:16.89   1st Qu.:0.0000   1st Qu.:0.0000  
+ Median :19.20   Median :6.000   Median :196.3   Median :123.0   Median :3.695   Median :3.325   Median :17.71   Median :0.0000   Median :0.0000  
+ Mean   :20.09   Mean   :6.188   Mean   :230.7   Mean   :146.7   Mean   :3.597   Mean   :3.217   Mean   :17.85   Mean   :0.4375   Mean   :0.4062  
+ 3rd Qu.:22.80   3rd Qu.:8.000   3rd Qu.:326.0   3rd Qu.:180.0   3rd Qu.:3.920   3rd Qu.:3.610   3rd Qu.:18.90   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :33.90   Max.   :8.000   Max.   :472.0   Max.   :335.0   Max.   :4.930   Max.   :5.424   Max.   :22.90   Max.   :1.0000   Max.   :1.0000  
+      gear            carb      
+ Min.   :3.000   Min.   :1.000  
+ 1st Qu.:3.000   1st Qu.:2.000  
+ Median :4.000   Median :2.000  
+ Mean   :3.688   Mean   :2.812  
+ 3rd Qu.:4.000   3rd Qu.:4.000  
+ Max.   :5.000   Max.   :8.000  
+> 
+> # Step 3: Create S3 and S4 Objects with mtcars Data
+> 
+> # S3 Object Example
+> s3_mtcars <- list(mpg = mtcars$mpg[1:3], cyl = mtcars$cyl[1:3], hp = mtcars$hp[1:3])
+> class(s3_mtcars) <- "car_data"
+> s3_mtcars  
+$mpg
+[1] 21.0 21.0 22.8
+
+$cyl
+[1] 6 6 4
+
+$hp
+[1] 110 110  93
+
+attr(,"class")
+[1] "car_data"
+> 
+> # S4 Object Example
+> setClass("car_data",
++          slots = list(mpg = "numeric", cyl = "numeric", hp = "numeric"))
+> 
+> s4_mtcars <- new("car_data", mpg = mtcars$mpg[1:3], cyl = mtcars$cyl[1:3], hp = mtcars$hp[1:3])
+> s4_mtcars  
+An object of class "car_data"
+Slot "mpg":
+[1] 21.0 21.0 22.8
+
+Slot "cyl":
+[1] 6 6 4
+
+Slot "hp":
+[1] 110 110  93
+
+
+
+You can tell if an object is S3 or S4 by using class(object) for S3 and isS4(object) for S4. S3 is more flexible, while S4 is stricter and requires formal definitions.
+
+To find an object’s base type, use typeof(object), which tells you if it's an "integer," "character," or "list." The mode(object) function also helps understand how the object behaves.
+
+A generic function is one that adapts based on the object type. Functions like print(), summary(), and plot() work differently depending on whether they’re used on a data frame, vector, or custom object.
+
+The main difference between S3 and S4 is structure. S3 is simple—you assign a class with class(object), and method names follow conventions like print.dataframe. S4 is more rigid, requiring setClass() and setMethod(), making it better for structured applications.

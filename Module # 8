@@ -13,7 +13,7 @@ For this assignment, I worked with a dataset containing student information such
 > # Read the dataset with read.delim() assuming it's tab-separated
 > Student_assignment_6 <- read.delim("/Users/zayjenings/Desktop/Assignment 6 Dataset.txt", header = TRUE)
 >
-> # Rename columns for clarity
+> # Rename columns
 > colnames(Student_assignment_6) <- c("Name", "Age", "Sex", "Grade")
 >
 > # View the first few rows to confirm the changes

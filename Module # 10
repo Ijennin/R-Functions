@@ -1,0 +1,19 @@
+Issaiah Jennings
+Module # 10 Building your own R package
+
+Package: Jennings
+
+Title: Data Visualization Tools Version: 0.0.0.9000
+
+Authors@R: Authors@R: c(person("Issaiah", "Jennings", email = "icarterjennings@usf.edu", role = c("aut", "cre")))
+
+Description: A package for creating data visualizations using base R, lattice, and ggplot2. It helps users generate clear and effective plots for data analysis
+
+Depends: R (>= 3.1.2)
+
+License: CC0
+
+LazyData: true
+
+
+The Jennings package is for students and anyone looking to make data visualizations in R without too much hassle. It includes simple functions to create plots using base R, lattice, and ggplot2, so you can explore different styles without switching tools. This package is meant to make it easier to generate clear, professional-looking charts for class projects, research, or personal data analysis.

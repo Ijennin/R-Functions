@@ -1,0 +1,32 @@
+---
+title: "Markdown Assignment for LIS4370"
+author: "Issaiah Jennings"
+date: "2025-04-13"
+output: html_document
+---
+
+## Introduction
+
+For this project, I created functions in R to calculate the average grade of a student from a list of scores. The functions also check if the student passed based on the average score and provide feedback. This could be helpful for teachers, students, or anyone interested in tracking grades.
+
+---
+
+## Function 1: `calculate_average()`
+
+**What it does:**  
+Calculates the average grade from a list of scores.
+
+**Inputs:**  
+- A numeric vector containing the scores (e.g., `c(90, 85, 88, 92)`)
+
+**Outputs:**  
+- The average grade
+
+**Code:**
+```{r}
+calculate_average <- function(grades) {
+  return(mean(grades))
+}
+
+# Example
+calculate_average(c(90, 85, 88, 92))  # 88.75
